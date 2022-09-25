@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-products
+  labels:
+    tier: store-products
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: store-products
+  strategy: 
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        tier: store-products
+    spec:
+      containers:
+      - name: store-products
+        image: calebespinoza/store-products:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
