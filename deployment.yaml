@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: store-products
-        image: calebespinoza/store-products:2.0
+        image: calebespinoza/store-products:3.0
         resources:
           limits:
             memory: "128Mi"
